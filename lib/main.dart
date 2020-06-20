@@ -1,4 +1,6 @@
+
 import 'package:flutter/material.dart';
+import 'package:register_sederhana/LoginPage.dart';
 
 void main() => runApp(MaterialApp(
   home: RegisterPage(),
@@ -11,6 +13,34 @@ class RegisterPage extends StatefulWidget {
 }
 
 class _RegisterPageState extends State<RegisterPage> {
+  void _tampilkanalert() {
+    AlertDialog alertDialog = new AlertDialog(
+      content: new Container(
+        height: 100.0,
+        child: new Center(
+          child: Column(
+            children: <Widget>[
+              Text("Selamat Anda Berhasil!!"),
+              Padding(
+                padding: const EdgeInsets.only(top: 30.0),
+                child: RaisedButton(
+                  color: Colors.orange,
+                  child: Text('Login', style: TextStyle(fontSize: 18, color: Colors.white ),),
+                  onPressed: (){
+                    Navigator.of(context).push(MaterialPageRoute(
+                        builder: (context) => LoginPage()));
+                  },
+                ),
+              )
+            ],
+
+        ),
+      ),
+      )
+    );
+    showDialog(context: context, child: alertDialog);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -40,8 +70,15 @@ class _RegisterPageState extends State<RegisterPage> {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.only(left: 20.0, right: 20.0),
-              child: TextFormField(),
+              padding: const EdgeInsets.only(left: 20.0, right: 20.0, top: 10),
+              child: TextFormField(
+                decoration: InputDecoration(
+                  hintText: "Nama Mahasiswa",
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(2.0)
+                  )
+                ),
+              ),
             ),
             Padding(
               padding: const EdgeInsets.only(left: 20.0, top: 20),
@@ -51,8 +88,16 @@ class _RegisterPageState extends State<RegisterPage> {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.only(left: 20.0, right: 20.0),
-              child: TextFormField(),
+              padding: const EdgeInsets.only(left: 20.0, right: 20.0, top: 10),
+              child: TextFormField(
+                keyboardType: TextInputType.number,
+                decoration: InputDecoration(
+                    hintText: "NIM",
+                    border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(2.0)
+                    )
+                ),
+              ),
             ),
             Padding(
               padding: const EdgeInsets.only(left: 20.0, top: 20),
@@ -62,9 +107,34 @@ class _RegisterPageState extends State<RegisterPage> {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.only(left: 20.0, right: 20.0),
-              child: TextFormField(),
+              padding: const EdgeInsets.only(left: 20.0, right: 20.0, top: 10),
+              child: TextFormField(
+                decoration: InputDecoration(
+                    hintText: "Program Studi",
+                    border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(2.0)
+                    )
+                ),
+              ),
             ),
+          Padding(
+            padding: const EdgeInsets.only(left: 20.0, top: 20),
+            child: Text(
+              'Email',
+              style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.only(left: 20.0, right: 20.0, top: 10),
+            child: TextFormField(
+              decoration: InputDecoration(
+                  hintText: "Email",
+                  border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(2.0)
+                  )
+              ),
+            ),
+          ),
             Padding(
               padding: const EdgeInsets.only(left: 20.0, top: 20),
               child: Text(
@@ -73,8 +143,16 @@ class _RegisterPageState extends State<RegisterPage> {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.only(left: 20.0, right: 20.0),
-              child: TextFormField(),
+              padding: const EdgeInsets.only(left: 20.0, right: 20.0, top: 10),
+              child: TextFormField(
+                maxLines: 6,
+                decoration: InputDecoration(
+                    hintText: "Alamat Mahasiswa",
+                    border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(2.0)
+                    )
+                ),
+              ),
             ),
             Padding(
               padding: const EdgeInsets.only(left: 20.0, top: 20),
@@ -84,8 +162,16 @@ class _RegisterPageState extends State<RegisterPage> {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.only(left: 20.0, right: 20.0),
-              child: TextFormField(),
+              padding: const EdgeInsets.only(left: 20.0, right: 20.0, top: 10),
+              child: TextFormField(
+                keyboardType: TextInputType.phone,
+                decoration: InputDecoration(
+                    hintText: "Nomor Telp",
+                    border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(2.0)
+                    )
+                ),
+              ),
             ),
             Padding(
               padding: const EdgeInsets.only(left: 20.0, top: 20),
@@ -95,9 +181,15 @@ class _RegisterPageState extends State<RegisterPage> {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.only(left: 20.0, right: 20),
+              padding: const EdgeInsets.only(left: 20.0, right: 20, top: 10),
               child: TextFormField(
                 obscureText: true,
+                decoration: InputDecoration(
+                    hintText: "Password",
+                    border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(2.0)
+                    )
+                ),
               ),
             ),
             Padding(
@@ -109,7 +201,7 @@ class _RegisterPageState extends State<RegisterPage> {
                   child: RaisedButton(
                     color: Colors.orange,
                     onPressed: () {
-
+                      _tampilkanalert();
                     },
                     child: Text(
                       'Register',
@@ -119,15 +211,6 @@ class _RegisterPageState extends State<RegisterPage> {
                 ),
               ),
             ),
-            /*FlatButton(
-                onPressed: (){
-                  *//*Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => LoginPage()));*//*
-                },
-                child: Text(
-                  'Login ',
-                  style: TextStyle(fontSize: 16.0, fontWeight: FontWeight.bold, ),
-                )),*/
           ],
       ),
     );
